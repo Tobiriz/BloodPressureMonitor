@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
+import { NewReadingComponent as NewReadingForm } from '../new-reading/new-reading.component';
+import Reading from '../../reading/reading.class';
 
 @Component({
   selector: 'app-record',
@@ -7,4 +9,28 @@ import { Component } from '@angular/core';
 })
 export class RecordComponent {
 
+  @Output() readingAdded = new EventEmitter<Reading[]>();
+
+  @ViewChild(NewReadingForm) newReadingForm: NewReadingForm | undefined;
+  newReadingDialog: any;
+
+  readings: Reading[];
+
+  constructor() {
+    this.readings = new Array<Reading>();
+  }
+  
+  ngOnInit() {
+    this.newReadingDialog = document.getElementById('newReadingDialog');
+  }
+
+  openNewReadingForm() {
+    this.newReadingDialog.showModal();
+    this.newReadingForm?.newReading();
+  }
+
+  addReading(reading: Reading) {
+    this.readings.push(reading);
+    this.readingAdded.emit(this.readings);
+  }
 }
