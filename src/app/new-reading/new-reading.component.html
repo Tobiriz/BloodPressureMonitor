@@ -1,5 +1,5 @@
 
-<h2>Add a new Reading</h2>
+<h1>Add a new Reading</h1>
 
 <form class="dialog-container" [formGroup]="newReadingForm">
     <div class="inputs">
@@ -28,6 +28,8 @@
         </section>
     </div>
 
-    <button type="reset" (click)="closeDialog()">Close</button>
-    <button type="submit" (click)="addReading()" [disabled]="!newReadingForm.valid">Add Reading</button>
+    <div class="buttons">
+        <button type="reset" (click)="closeDialog()">Close</button>
+        <button type="submit" (click)="addReading()" [disabled]="!newReadingForm.valid">Add Reading</button>
+    </div>
 </form>
