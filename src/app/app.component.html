@@ -1,4 +1,4 @@
 
-<app-monitor></app-monitor>
+<app-monitor [readings]="readings"></app-monitor>
 
-<app-record></app-record>
+<app-record (readingAdded)="updateRecord($event)"></app-record>
