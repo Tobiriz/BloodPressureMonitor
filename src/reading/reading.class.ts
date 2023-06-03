@@ -1,31 +1,31 @@
 import { formatDate } from "@angular/common";
 
 export default class Reading {
-    private _systolic: string;
-    private _diastolic: string;
-    private _pulse: string;
+    private _systolic: number;
+    private _diastolic: number;
+    private _pulse: number;
     private _date: string;
     private _time: string;
     private _notes: string;
 
-    constructor(systolic: string, diastolic: string, pulse: string, date: string, time: string, notes: string) {
+    constructor(systolic: number, diastolic: number, pulse: number, date: string, time: string, notes: string) {
         this._systolic = systolic;
         this._diastolic = diastolic;
         this._pulse = pulse;
-        this._date = formatDate(date, 'yyyy.MM.dd', 'en-US');
+        this._date = date;
         this._time = time;
         this._notes = notes;
     }
 
-    get systolic(): string {
+    get systolic(): number {
         return this._systolic;
     }
 
-    get diastolic(): string {
+    get diastolic(): number {
         return this._diastolic;
     }
 
-    get pulse(): string {
+    get pulse(): number {
         return this._pulse;
     }
 
@@ -42,16 +42,20 @@ export default class Reading {
     }
 
     get prognosis(): Prognosis {
-        const systolic = parseInt(this._systolic);
-        const diastolic = parseInt(this._diastolic);
+        const systolic = this._systolic;
+        const diastolic = this._diastolic;
 
-        if (systolic < 120 && diastolic < 80) {
+        if (systolic < 90 && diastolic < 60) {
+            return Prognosis.Hypotension;
+        } else if (systolic < 120 && diastolic < 80) {
+            return Prognosis.Optimal;
+        } else if (systolic < 130 && diastolic < 85) {
             return Prognosis.Normal;
-        } else if (systolic >= 120 && systolic <= 129 && diastolic < 80) {
+        } else if (systolic < 140 && diastolic < 90) {
             return Prognosis.Elevated;
-        } else if (systolic >= 130 && systolic <= 139 || diastolic >= 80 && diastolic <= 89) {
+        } else if (systolic < 160 && diastolic < 100) {
             return Prognosis.HypertensionStage1;
-        } else if (systolic >= 140 && systolic <= 180 || diastolic >= 90 && diastolic <= 120) {
+        } else if (systolic < 180 && diastolic < 110) {
             return Prognosis.HypertensionStage2;
         } else {
             return Prognosis.HypertensiveCrisis;
@@ -60,9 +64,11 @@ export default class Reading {
 }
 
 export enum Prognosis {
-    Normal,
-    Elevated,
-    HypertensionStage1,
-    HypertensionStage2,
-    HypertensiveCrisis
+    Hypotension = "Hypotension",
+    Optimal = "Optimal",
+    Normal = "Normal",
+    Elevated = "Elevated",
+    HypertensionStage1 = "Hypertension Stage 1",
+    HypertensionStage2 = "Hypertension Stage 2",
+    HypertensiveCrisis = "Hypertensive Crisis"
 }
