@@ -1,1 +1,19 @@
-<p>record works!</p>
+
+
+
+<button (click)="openNewReadingForm()">Add new Reading</button>
+
+<dialog id="newReadingDialog">
+    <app-new-reading (addReadingEvent)="addReading($event)"></app-new-reading>
+</dialog>
+
+<app-reading *ngFor="let reading of readings, let i = index"
+    [systolic]="reading.systolic"
+    [diastolic]="reading.diastolic"
+    [pulse]="reading.pulse"
+    [date]="reading.date"
+    [time]="reading.time"
+    [notes]="reading.notes"
+    [prognosis]="reading.prognosis"
+></app-reading>
+
