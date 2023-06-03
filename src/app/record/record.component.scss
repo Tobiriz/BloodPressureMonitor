@@ -1,0 +1,30 @@
+
+dialog {
+    background-color: var(--c-background-secondary);
+    border: 2px solid var(--c-border-primary);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 2rem;
+}
+
+.record {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.button {
+    width: 100%;
+    max-width: 200px;
+    font-size: large;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 2px solid var(--c-border-secondary);
+    border-radius: 8px;
+    outline-color: var(--c-outline);
+    background-color: var(--c-button-background);
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--c-button-hover);
+    }
+}

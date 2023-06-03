@@ -1,0 +1,27 @@
+.reading {
+    background-color: var(--c-background-secondary);
+    border: 2px solid var(--c-border-secondary);
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    h4 {
+        margin: 0;
+    }
+
+    .values {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 2fr;
+        padding: 2px 20px;
+        font-size: large;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .notes {
+        padding: 2px 20px;
+        margin: 0;
+    }
+}
