@@ -1,16 +1,63 @@
 
 :root {
+    --c-black: #000000;
+
+
     --c-brown-dark: #675D50;
     --c-brown-light: #A9907E;
     --c-beige: #F3DEBA;
     --c-sage: #ABC4AA;
+    
+    --c-blue: #579BB1;
+    --c-beige-var-1: #E1D7C6;
+    --c-beige-var-2: #ECE8DD;
+    --c-beige-var-3: #F8F4EA;
+
+    --c-orange: #CF8A23;
+    --c-green: #2A9C4F;
+    --c-violet: #6F0ECF;
 }
 
 :root {
-    --c-background-body: var(--c-beige);
+    --c-background-body: var(--c-beige-var-1);
+    --c-background-primary: var(--c-beige-var-2);
+    --c-background-secondry: var(--c-beige-var-3);
+
+    --c-border-primary: var(--c-brown-dark);
+    --c-border-secondry: var(--c-brown-light);
+    
+    --c-text-primary: var(--c-black);
+
+    --c-systolic: var(--c-orange);
+    --c-diastolic: var(--c-green);
+    --c-pulse: var(--c-violet);
 }
 
 body {
     margin: 0;
     background-color: var(--c-background-body);
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--c-text-primary);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 10px 20px;
+    margin: 1rem 0;
+
+    background-color: var(--c-beige-var-3);
+    border: 2px solid black;
+    border-radius: 8px;
 }
