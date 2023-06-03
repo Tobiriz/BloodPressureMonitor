@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --c-brown-dark: #675D50;
+    --c-brown-light: #A9907E;
+    --c-beige: #F3DEBA;
+    --c-sage: #ABC4AA;
+}
+
+:root {
+    --c-background-body: var(--c-beige);
+}
+
+body {
+    margin: 0;
+    background-color: var(--c-background-body);
+}
