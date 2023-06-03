@@ -6,6 +6,7 @@ import { MonitorComponent } from './monitor/monitor.component';
 import { ReadingComponent } from './reading/reading.component';
 import { RecordComponent } from './record/record.component';
 import { NewReadingComponent } from './new-reading/new-reading.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NewReadingComponent } from './new-reading/new-reading.component';
     NewReadingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
