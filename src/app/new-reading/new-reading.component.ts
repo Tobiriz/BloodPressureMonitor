@@ -45,13 +45,10 @@ export class NewReadingComponent {
   }
 
   addReading() {
-    console.log('addReading() called');
-    console.log(this.newReadingForm.value);
-
     const newReading = new Reading(
-      this.newReadingForm.value.systolic as string,
-      this.newReadingForm.value.diastolic as string,
-      this.newReadingForm.value.pulse as string,
+      this.newReadingForm.value.systolic as unknown as number,
+      this.newReadingForm.value.diastolic as unknown as number,
+      this.newReadingForm.value.pulse as unknown as number,
       this.newReadingForm.value.date as string,
       this.newReadingForm.value.time as string,
       this.newReadingForm.value.notes as string
