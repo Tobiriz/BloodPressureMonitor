@@ -1,1 +1,12 @@
-<p>reading works!</p>
+
+<div class="reading">
+    <h4>{{ date }} {{ time }}</h4>
+
+    <div class="values">
+        <p>Systolic: <span style="font-weight: bold">{{ systolic }}</span></p>
+        <p>Diastolic: <span style="font-weight: bold">{{ diastolic }}</span></p>
+        <p>Pulse: <span style="font-weight: bold">{{ pulse }}</span></p>
+        <p>Prognosis: {{ prognosis }}</p>
+    </div>
+    <pre class="notes">{{ notes }}</pre>
+</div>
